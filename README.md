@@ -1,0 +1,2 @@
+This is the start of my bachelor thesis about using machine learning(ML) for data compression purposes.
+The main goal is to overcome static choice with ML model that matches a specific algorithm to a specific file and use case 
