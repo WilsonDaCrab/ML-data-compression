@@ -1,4 +1,21 @@
-.idea/
-*.iml
+# Data (regenerable from scripts; see README)
+data/
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# CatBoost training logs
+catboost_info/
+
+# OS
+Thumbs.db
+.DS_Store
