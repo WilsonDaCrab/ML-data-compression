@@ -243,7 +243,7 @@ def main():
         print(f"{r['algorithm']:<10} {r['levels']:<16} {cr_range:^12} {comp_range:^16} {decomp_range:^16}")
     print("=" * 75)
     print("Note: averages across all Silesia corpus files.")
-    print("      CR = original_size / compressed_size (higher = better).")
+    print("CR = original_size / compressed_size (higher = better).")
 
 
 if __name__ == "__main__":
