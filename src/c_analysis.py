@@ -385,9 +385,10 @@ def analysis_timing(profiles, X_test, sha256_test, thresh_df,
     if extract_times:
         mean_ms = float(np.mean(extract_times))
         median_ms = float(np.median(extract_times))
+        std_ms = float(np.std(extract_times, ddof=1)) if len(extract_times) > 1 else 0.0
         mean_mb = float(np.mean(sizes_mb))
         ms_per_mb = mean_ms / mean_mb if mean_mb > 0 else float("nan")
-        print(f"    Mean: {mean_ms:.1f} ms/file (median {median_ms:.1f} ms)")
+        print(f"    Mean: {mean_ms:.1f} ms/file (median {median_ms:.1f} ms, SD {std_ms:.1f} ms)")
         print(f"    Mean file size: {mean_mb:.2f} MB")
         if ms_per_mb > 0:
             print(f"    Throughput: {ms_per_mb:.1f} ms/MB ({1000/ms_per_mb:.0f} MB/s)")
@@ -399,6 +400,7 @@ def analysis_timing(profiles, X_test, sha256_test, thresh_df,
             "total_ms": round(sum(extract_times), 2),
             "per_file_ms": round(mean_ms, 2),
             "median_ms": round(median_ms, 2),
+            "std_ms": round(std_ms, 2),
             "mean_size_mb": round(mean_mb, 3),
             "ms_per_mb": round(ms_per_mb, 2) if not np.isnan(ms_per_mb) else None,
         })
